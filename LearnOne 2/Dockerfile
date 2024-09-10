@@ -1,9 +1,11 @@
-From maven:3.8.5-opendk-17 As build
-COPY..
+# Build stage
+FROM maven:3.8.5-openjdk-17 AS build
+COPY . /app
+WORKDIR /app
 RUN mvn clean package -DskipTests
 
-
-FROM opendk:17.0.1-jdk-slim
-COPY --from=build /target/LearnOne-0.0.1-SNAPSHOT.jar LearnOne.jar
+# Runtime stage
+FROM openjdk:17.0.1-jdk-slim
+COPY --from=build /app/target/LearnOne-0.0.1-SNAPSHOT.jar /LearnOne.jar
 EXPOSE 8080
-ENTRYPOINT["java","-jar","LearnOne.jar"]
+ENTRYPOINT ["java", "-jar", "/LearnOne.jar"]
