@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Ayawaso West Portal</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+        .d-flex {
+            height: 100%;
+            max-height: 800px;
+        }
+        .sidebar {
+            background-color: #007bff;
+            color: white;
+            padding: 40px;
+            border-radius: 10px 0 0 10px;
+            text-align: center;
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+        .sidebar img {
+            max-height: 200px;
+            margin-bottom: 20px;
+        }
+        .sidebar h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+        .sidebar h2 {
+            font-size: 40px;
+            margin: 10px 0;
+        }
+        .sidebar h3 {
+            font-size: 24px;
+            margin: 0;
+        }
+        .exit-link {
+            color: red;
+            cursor: pointer;
+            text-align: right;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .login-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .login-container h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .form-control {
+            border-radius: 20px;
+            margin-bottom: 20px;
+            font-size: 18px;
+            height: 50px;
+            padding: 15px;
+        }
+        .btn-primary {
+            font-size: 20px;
+            padding: 15px;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="d-flex">
+    <div class="sidebar">
+        <img th:src="@{/Images/ndc.png}" alt="Logo" class="img-fluid">
+        <h1>Welcome</h1>
+        <h2>Ayawaso Wougon Constituency</h2>
+        <h3>Management App</h3>
+    </div>
+    <div class="login-container">
+        <a class="exit-link" onclick="closeLogin()">Exit</a>
+        <h2>Login</h2>
+        <form id="loginForm" th:action="@{/login}" method="post" onsubmit="return validateForm()">
+            <!-- Add CSRF Token if needed later -->
+            <div class="form-group">
+                <input type="email" class="form-control" id="emailtxt" name="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" id="passwordtxt" name="password" placeholder="Password" required>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" id="confirmpasswordtxt" name="confirmPassword" placeholder="Confirm Password" required>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" id="showtxt" onclick="togglePasswordVisibility()"> Show Password
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function togglePasswordVisibility() {
+        const passwordField = document.getElementById('passwordtxt');
+        const confirmPasswordField = document.getElementById('confirmpasswordtxt');
+        const type = document.getElementById('showtxt').checked ? 'text' : 'password';
+        passwordField.type = type;
+        confirmPasswordField.type = type;
+    }
+
+    function closeLogin() {
+        if (window.confirm('Are you sure you want to exit?')) {
+            window.close(); // Attempt to close the current browser window
+            // For security reasons, this might not always work unless the window was opened by a script.
+            // As an alternative, redirect the user to a different page.
+            // window.location.href = '/'; // Redirect to homepage or another URL
+        }
+    }
+
+    function validateForm() {
+        const password = document.getElementById('passwordtxt').value;
+        const confirmPassword = document.getElementById('confirmpasswordtxt').value;
+        if (password !== confirmPassword) {
+            alert('Passwords do not match.');
+            return false;
+        }
+        return true;
+    }
+</script>
+</body>
+</html>
