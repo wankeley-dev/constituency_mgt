@@ -1,7 +1,9 @@
 # Build stage
 FROM maven:3.8.5-openjdk-17 AS build
-COPY . /app
 WORKDIR /app
+COPY pom.xml ./
+RUN mvn dependency:go-offline
+COPY . .
 RUN mvn clean package -DskipTests
 
 # Runtime stage
