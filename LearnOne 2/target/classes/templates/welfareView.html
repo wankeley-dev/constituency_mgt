@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welfare Information</title>
+    <title>Welfare Information - Ayawaso West</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <style>
@@ -11,87 +11,71 @@
 
         * {
             font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            margin: 0;
+            background: #f0f0f0;
             min-height: 100vh;
         }
 
         .navbar {
-            background: linear-gradient(45deg, #6c4dfa, #8a65fb);
-            box-shadow: 0 4px 15px rgba(108, 77, 250, 0.3);
-            padding: 1rem 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .navbar:hover {
-            box-shadow: 0 6px 20px rgba(108, 77, 250, 0.4);
+            background: #008000;
+            padding: 15px 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .navbar-brand {
             display: flex;
             align-items: center;
-            transition: transform 0.3s ease;
-        }
-
-        .navbar-brand:hover {
-            transform: scale(1.05);
+            color: white;
+            font-weight: 600;
+            font-size: 1.3em;
         }
 
         .navbar-brand img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+            width: 40px;
+            height: 40px;
             margin-right: 10px;
         }
 
         .nav-link {
-            padding: 0.8rem 1.2rem !important;
-            border-radius: 25px;
-            transition: all 0.3s ease;
             color: white !important;
+            padding: 8px 15px !important;
+            border-radius: 5px;
+            transition: background 0.3s ease;
         }
 
         .nav-link:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.2);
         }
 
         .nav-link i {
-            margin-right: 8px;
+            margin-right: 5px;
         }
 
         .content {
             padding: 40px 20px;
-            margin-top: 80px;
-            animation: fadeIn 1s ease-in;
+            margin-top: 70px;
         }
 
         .welfare-info-container {
             background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
-            max-width: 900px;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            max-width: 1200px;
             margin: 0 auto;
-            transition: all 0.3s ease;
-        }
-
-        .welfare-info-container:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
         }
 
         .header-text {
-            color: #6c4dfa;
-            font-size: 2.5em;
+            color: #008000;
+            font-size: 2em;
             font-weight: 600;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             text-align: center;
-            text-shadow: 2px 2px 8px rgba(108, 77, 250, 0.2);
-            animation: slideIn 0.8s ease-out;
         }
 
         .table-container {
@@ -101,86 +85,83 @@
 
         table {
             width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
+            border-collapse: collapse;
         }
 
         th, td {
-            padding: 15px;
+            padding: 12px;
             text-align: left;
             border-bottom: 1px solid #eee;
         }
 
-        thead th {
-            background: #6c4dfa;
+        th {
+            background: #008000;
             color: white;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            font-weight: 500;
         }
 
-        tr {
-            transition: all 0.3s ease;
+        td {
+            color: #333;
         }
 
         tr:hover {
-            background-color: rgba(108, 77, 250, 0.05);
-            transform: scale(1.01);
+            background: #f8f8f8;
         }
 
         .btn-custom {
-            background: linear-gradient(45deg, #6c4dfa, #8a65fb);
+            background: #008000;
             color: white;
-            font-size: 1.1em;
             border: none;
-            border-radius: 25px;
-            padding: 12px 25px;
-            margin-top: 30px;
-            display: inline-block;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(108, 77, 250, 0.3);
+            padding: 8px 15px;
+            border-radius: 8px;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: background 0.3s ease;
+            margin: 5px;
         }
 
         .btn-custom:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(108, 77, 250, 0.4);
-            background: linear-gradient(45deg, #5b3fbd, #7a54ea);
+            background: #006400;
         }
 
-        .btn-custom:active {
-            transform: translateY(0);
-            box-shadow: 0 2px 10px rgba(108, 77, 250, 0.2);
+        .btn-danger {
+            background: #dc3545;
         }
 
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .btn-danger:hover {
+            background: #c82333;
         }
 
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .search-form {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
         }
 
-        /* Responsive */
+        .search-form input {
+            width: 300px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
         @media (max-width: 768px) {
             .header-text {
-                font-size: 2em;
+                font-size: 1.8em;
             }
             .welfare-info-container {
                 padding: 20px;
             }
             .btn-custom {
                 width: 100%;
-                margin: 20px 0 0;
+                margin: 5px 0;
+            }
+            .navbar-brand {
+                font-size: 1.1em;
+            }
+            .search-form input {
+                width: 100%;
             }
         }
     </style>
@@ -188,7 +169,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark">
     <a class="navbar-brand" href="#">
-        <img src="Images/NDC-L.png" alt="Logo"> Ayawaso West
+        <img src="Images/NDC-L.png" alt="NDC Logo"> Ayawaso West
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -203,17 +184,17 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" th:href="@{/voterInput}">
-                    <i class="fas fa-users"></i> Voter Management
+                    <i class="fas fa-users"></i> Voters
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" th:href="@{/welfareInput}">
-                    <i class="fas fa-hand-holding-heart"></i> Welfare Management
+                    <i class="fas fa-hand-holding-heart"></i> Welfare
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" th:href="@{/report}">
-                    <i class="fas fa-chart-bar"></i> Report
+                    <i class="fas fa-chart-bar"></i> Reports
                 </a>
             </li>
         </ul>
@@ -222,31 +203,56 @@
 
 <div class="content">
     <div class="welfare-info-container">
-        <h1 class="header-text"><i class="fas fa-info-circle"></i> Welfare Information</h1>
+        <h1 class="header-text"><i class="fas fa-hand-holding-heart"></i> Welfare Information</h1>
+        <form th:action="@{/welfareInput/search}" method="get" class="search-form">
+            <input type="text" name="ward" placeholder="Search by ward..." required>
+            <button type="submit" class="btn btn-custom"><i class="fas fa-search"></i> Search</button>
+        </form>
         <div class="table-container">
-            <table class="table">
+            <table>
                 <thead>
                 <tr>
-                    <th><i class="fas fa-user"></i> Name</th>
-                    <th><i class="fas fa-map-marker-alt"></i> Ward</th>
-                    <th><i class="fas fa-id-card"></i> Voter ID</th>
-                    <th><i class="fas fa-money-bill-wave"></i> Amount Paid</th>
-                    <th><i class="fas fa-calendar-alt"></i> Start Date</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Ward</th>
+                    <th>Voter ID</th>
+                    <th>Amount Paid</th>
+                    <th>Start Date</th>
+                    <th>Due Date</th>
+                    <th>Payment Status</th>
+                    <th>Notes</th>
+                    <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="welfare : ${welfares}">
+                    <td th:text="${welfare.id}"></td>
                     <td th:text="${welfare.name}"></td>
                     <td th:text="${welfare.ward}"></td>
-                    <td th:text="${welfare.voterId}"></td>
+                    <td th:text="${welfare.voter.voterId}"></td>
                     <td th:text="${welfare.amountPaid}"></td>
                     <td th:text="${welfare.startDate}"></td>
+                    <td th:text="${welfare.dueDate}"></td>
+                    <td th:text="${welfare.paymentStatus}"></td>
+                    <td th:text="${welfare.notes}"></td>
+                    <td>
+                        <a th:href="@{/welfareInput/edit/{id}(id=${welfare.id})}" class="btn btn-custom">
+                            <i class="fas fa-edit"></i> Edit
+                        </a>
+                        <a th:href="@{/welfareInput/delete/{id}(id=${welfare.id})}" class="btn btn-danger"
+                           onclick="return confirm('Are you sure you want to delete this welfare record?');">
+                            <i class="fas fa-trash"></i> Delete
+                        </a>
+                    </td>
                 </tr>
                 </tbody>
             </table>
         </div>
-        <a href="#" class="btn btn-custom" th:href="@{/welfareInput}">
+        <a th:href="@{/welfareInput}" class="btn btn-custom">
             <i class="fas fa-arrow-left"></i> Back to Input
+        </a>
+        <a th:href="@{/welfareInput/print}" class="btn btn-custom">
+            <i class="fas fa-print"></i> Print All Welfare
         </a>
     </div>
 </div>
